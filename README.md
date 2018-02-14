@@ -8,7 +8,7 @@ http://pop.riascarlet.com/#:token
 
 ## Deploy
 ```
-npm run build && git subtree push --prefix dist origin gh-pages
+npm run build && git add -A && git commit -am "Deploy" && git subtree push --prefix dist origin gh-pages
 
 ```
 

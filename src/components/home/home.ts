@@ -40,7 +40,7 @@ export class HomeComponent extends Vue {
   }
 
   private loadServers () {
-    let token = this.$route.hash
+    let token = this.$route.hash.substr(1)
     let unfetchedServer = this.servers.filter((s) => !s.fetching)
     if (unfetchedServer.length) {
       for (let s of unfetchedServer) {
