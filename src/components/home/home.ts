@@ -52,6 +52,9 @@ export class HomeComponent extends Vue {
           }, 1000)
         }, (error) => {
           console.error(error)
+          setTimeout(() => {
+            s.fetching = false
+          }, 1000)
         })
       }
     }
