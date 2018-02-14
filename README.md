@@ -1,8 +1,23 @@
-# server-status
+# pop-deploy-status
 
-> A Vue.js project
+## Usage
 
-## Build Setup
+```
+http://pop.riascarlet.com/#:token
+```
+
+## Deploy
+```
+npm run build && git subtree push --prefix dist origin gh-pages
+
+```
+
+## Development
+```
+npm run dev
+```
+
+## Other
 
 ``` bash
 # install dependencies
