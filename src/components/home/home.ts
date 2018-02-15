@@ -22,7 +22,7 @@ export class HomeComponent extends Vue {
   mode: string = process.env.ENV
   protected axios
   private servers: Server[] = [
-    new Server('master', 'Shikigaku', 'http://shikigakucloud.com'),
+    new Server('release', 'Shikigaku', 'http://shikigakucloud.com'),
     new Server('staging', 'Staging', 'https://s.skillhub.jp'),
     new Server('basic', 'Basic', 'https://pops.basicinc.jp')
   ]
