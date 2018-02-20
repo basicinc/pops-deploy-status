@@ -8,7 +8,9 @@
         <li v-for="server in servers">
           <a v-bind:href="server.url">
             <img v-bind:src="server.getBadgeUrl()" v-bind:title="server.name" v-bind:alt="server.status">
-          </a></li>
+          </a>
+          <input type="checkbox" id="checkbox" :value="server.branch" v-model="server.subscription" @click="subscribe($event)">
+        </li>
       </ul>
     </b-col>
   </b-row>

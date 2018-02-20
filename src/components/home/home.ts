@@ -34,9 +34,19 @@ export class HomeComponent extends Vue {
   }
 
   mounted () {
+    if ((Notification as any).permission !== 'denied' && (Notification as any).permission !== 'granted') {
+      (Notification as any).requestPermission()
+    }
     this.$nextTick(() => {
       this.loadServers()
     })
+  }
+
+  public subscribe (e) {
+    if (e.target.checked) {
+      let server = this.servers.find((s) => s.branch === e.target.value)
+      server.subscribe()
+    }
   }
 
   private loadServers () {
@@ -46,7 +56,7 @@ export class HomeComponent extends Vue {
       for (let s of unfetchedServer) {
         s.fetching = true
         this.axios.get(this.getUrl(s.branch, token)).then((response: AxiosResponse) => {
-          s.status = response.data[0].status
+          s.setStatus(response.data[0].status)
           setTimeout(() => {
             s.fetching = false
           }, 1000)
