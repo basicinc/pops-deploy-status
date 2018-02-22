@@ -26,7 +26,7 @@ export class HomeComponent extends Vue {
     new Server('staging', 'Staging', 'https://s.skillhub.jp'),
     new Server('basic', 'Basic', 'https://pops.basicinc.jp')
   ]
-  private url = 'https://circleci.com/api/v1.1/project/github/happa/pops/tree/:branch?circle-token=:token&limit=1'
+  private url = 'https://circleci.com/api/v1.1/project/github/happa/pops/tree/:branch?circle-token=:token'
 
   constructor () {
     super()
@@ -56,7 +56,8 @@ export class HomeComponent extends Vue {
       for (let s of unfetchedServer) {
         s.fetching = true
         this.axios.get(this.getUrl(s.branch, token)).then((response: AxiosResponse) => {
-          s.setStatus(response.data[0].status)
+          let commit = response.data.find((commit) => commit.status === 'running') || response.data[0]
+          s.setStatus(commit.status)
           setTimeout(() => {
             s.fetching = false
           }, 1000)
