@@ -24,7 +24,8 @@ export class HomeComponent extends Vue {
   private servers: Server[] = [
     new Server('release', 'Shikigaku', 'http://shikigakucloud.com'),
     new Server('staging', 'Staging', 'https://s.skillhub.jp'),
-    new Server('basic', 'Basic', 'https://pops.basicinc.jp')
+    new Server('basic', 'Basic', 'https://pops.basicinc.jp'),
+    new Server('basic_staging', 'Basic staging', 'https://pops-stg.basicinc.jp')
   ]
   private url = 'https://circleci.com/api/v1.1/project/github/happa/pops/tree/:branch?circle-token=:token'
 

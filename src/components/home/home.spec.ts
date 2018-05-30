@@ -14,7 +14,7 @@ describe('Home component', () => {
     await directiveTest.execute((vm) => {
       debugger
       const mode = process.env.ENV
-      expect(vm.$el.querySelectorAll('.content li').length).to.equal(3)
+      expect(vm.$el.querySelectorAll('.content li').length).to.equal(4)
     })
   })
 })
