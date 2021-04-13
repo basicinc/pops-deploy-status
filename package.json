@@ -26,7 +26,7 @@
     "test:watch": "cross-env NODE_ENV=development karma start config/karma.unit.js --singleRun=false --auto-watch"
   },
   "dependencies": {
-    "axios": "~0.17.1",
+    "axios": "~0.21.1",
     "bootstrap-vue": "~2.0.0-rc.1",
     "vue": "~2.5.13",
     "vue-class-component": "~6.1.2",
